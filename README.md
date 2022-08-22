@@ -9,7 +9,7 @@
   <a href="https://github.com/LRalli/FOOTPAD/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
   </a>
-  <a href="https://www.codefactor.io/repository/github/LRalli/FOOTPAD"><img src="https://www.codefactor.io/repository/github/LRalli/FOOTPAD/badge" alt="CodeFactor" /></a>
+  <a href="https://www.codefactor.io/repository/github/lralli/footpad"><img src="https://www.codefactor.io/repository/github/lralli/footpad/badge" alt="CodeFactor" /></a>
 </p>
 
 <br><br>
