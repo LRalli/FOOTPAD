@@ -1,0 +1,6 @@
+CONTEGGIO ISTANZE NEL DATASET
+
+ Giocatore: 1562 
+ Guardalinee: 104 
+ Palla: 51 
+ Arbitro: 66
