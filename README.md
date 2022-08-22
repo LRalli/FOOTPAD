@@ -172,19 +172,19 @@ Tramite lo script ```MainScript.py``` è possibile ottenere in output il video c
 
    - Fase in cui si prepara l'algoritmo YOLO inizializzando il dnn con le weights allenate in precedenza + il file di configurazione yolo e in cui si estraggono le classi dal data file per preparare gli output layers degli oggetti trovati con la Detection
 
-3. __Funzione Get Detections__
+3. __Funzione get_detected()__
 
    - Funzione che ha il compito di gestire gli output_layers ottenuti dalla Detection, dopo aver estratto le info tra cui scores, class_ids e boxes procede al calcolo delle coordinate della posizione dell'oggetto e salva tutte le info raccolte in array
 
    - Infine cicla sugli oggetti trovati e, dopo aver applicato NoMaxSuppression per rimuovere il rumore, controlla se il label dell'oggetto trovato è diverso da "Palla", in caso positivo salva le info dell'oggetto nell'array che poi viene restituito come output e che verrà usato per disegnare i rettangoli 
 
-4. __Funzione plane__
+4. __Funzione plane()__
 
    - Funzione che usa la matrice di Perspective Transformation e gli oggetti trovati dalla Detection per disegnare sull'immagine plane i pallini relativi ai giocatori/assistenti di gara su schermo, dopo aver estratto la posizione del giocatore e dopo averla usata per mappare la posizione sulla mappa controlla il valore della classificazione, valore che viene aggiunto all'array con le informazioni del giocatore prima di chiamare la funzione, e in base al valore determina di che colore creare il punto sull'immagine plane
 
    - Effettua la stessa operazione per la palla le cui informazioni vengono salvate in un apposito array prima di chiamare la funzione
 
-5. __Funzione plane__
+5. __Fase Main__
 
   - Fase principale del programma in cui:
      - Si cicla sul ogni frame della clip data in input per effettuare la detection
