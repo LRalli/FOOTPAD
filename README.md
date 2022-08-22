@@ -6,10 +6,10 @@
    - Perspective Transformation tramite Opencv </p>
 
 <p align="center">
-  <a href="https://github.com/StudentsHUBProject/StudentsHUB/blob/master/LICENSE">
+  <a href="https://github.com/LRalli/FOOTPAD/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
   </a>
-  <a href="https://www.codefactor.io/repository/github/studentshubproject/studentshub"><img src="https://www.codefactor.io/repository/github/studentshubproject/studentshub/badge" alt="CodeFactor" /></a>
+  <a href="https://www.codefactor.io/repository/github/LRalli/FOOTPAD"><img src="https://www.codefactor.io/repository/github/LRalli/FOOTPAD/badge" alt="CodeFactor" /></a>
 </p>
 
 <br><br>
@@ -35,11 +35,15 @@ Altrimenti, se si vuole allenare un proprio Dataset, si seguano le istruzioni pr
 1. __Preparazione Dataset__
 <p>Una volta scelto il numero di classi che si vogliono identificare bisogna creare, nella cartella Dataset che verrà usata per il training, x cartelle (con x = numero di classi scelte) e nominarle rispettivamento 0,1,...,x</p>
 
-![Schema!](/ReadmeImg/KerasDataset.png)
+<p align="center">
+  <img src="ReadmeImg/KerasDataset.png" />
+</p>
 
 <p>Dopodiche bisogna riempire queste cartelle con gli oggetti che si vuole classificare (in questo caso giocatori e assistenti di gara), per farlo si prende ogni giocatore (o assistente di gara) che compare nella clip scelta e si salva l'immagine (di cui non importa la dimensione poichè ogni immagine verrà ri-dimensionata durante il pre-processamento) nell'apposita cartella in base la classe di appartenenza</p>
 
-![Schema!](/ReadmeImg/KerasDataset2.png)
+<p align="center">
+  <img src="ReadmeImg/KerasDataset2.png" />
+</p>
 
 Terminata la preparazione del Dataset questo verrà pre-processato per inserire le immagini all'interno di un batch (array numpy) che verrà passato all'Input_Layer del network
 
@@ -55,7 +59,9 @@ I primi 7 Hidden_Layers del CNN sono un insieme di Convolutional Layers e Max Po
 
 Relu (Rectified Linear Unit) è una funzione di attivazione lineare che ritorna 0 se riceve un input negativo mentre se riceve un valore positivo ritorna proprio quel valore, quindi può essere scritta come y = max(0,x)
 
-![Schema!](/ReadmeImg/relu.png)
+<p align="center">
+  <img src="ReadmeImg/relu.png" style="width:50%" />
+</p>
 
 gli ultimi Hidden_Layers invece sono il Flattening Layer per mettere tutte le informazioni sulla stessa riga, i Dense Layers per compattarle e un Dropout Layer per rimuovere il rumore
 
@@ -90,7 +96,9 @@ Frame video su LabelImg:
 
 Corrispondente file .txt generato:
 
-![Schema!](/ReadmeImg/LabelImgTXT.png)
+<p align="center">
+  <img src="ReadmeImg/LabelImgTXT.png" />
+</p>
 
 in cui le colonne rappresentano rispettivamente
  - Object ID : ID corrispondente alla classe di appartenenza dell'oggetto
@@ -101,7 +109,9 @@ in cui le colonne rappresentano rispettivamente
 
 Una volta terminato il processo di Labeling è possibile utilizzare lo script ```count_instances.py``` per ottenere in output un file .txt contenente il numero di istanze trovate per classe:
 
-![Schema!](/ReadmeImg/count.png)
+<p align="center">
+  <img src="ReadmeImg/count.png" />
+</p>
 
 <br>
 
@@ -110,7 +120,9 @@ Una volta terminato il processo di Labeling è possibile utilizzare lo script ``
 
 Darknet è un open source neural network framework scritto in C e CUDA che utilizza per la Object Detection l'algoritmo YOLO (You Only Look Once), un algoritmo che permette di identificare più oggetti e, allo stesso tempo, di identificare la loro posizione e lo spazio che occupano tramite solamente una single reading delle immagini in input
 
-![Schema!](/ReadmeImg/YOLO.png)
+<p align="center">
+  <img src="ReadmeImg/YOLO.png" />
+</p>
 
 Il concetto su cui si basa YOLO è quello di ridimensionare l'immagine cosi da ottenere una grid di quadrati che verrà poi analizzata attraverso un CNN
 
@@ -188,7 +200,9 @@ Tramite lo script ```MainScript.py``` è possibile ottenere in output il video c
 
   - Per la Detection della palla, visti i risultati scarsi ottenuti affidandoci solamente alle weights YOLO, si usa il Template Matching con metodo ```TM_SQDIFF_NORMED```, vengono passate alla funzione matchTemplate() l'immagine della palla caricata nella fase di Set-Up e la sua versione grayscale che generiamo in questa fase, per il metodo scelto la palla sarà il punto più scuro che esce fuori dal matching
 
-  ![Schema!](/ReadmeImg/ballDet.png)
+<p align="center">
+  <img src="ReadmeImg/ballDet.png" />
+</p>
 
 
 <h2 align="center">RISULTATI E CONSIDERAZIONI</h2>
