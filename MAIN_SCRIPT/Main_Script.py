@@ -17,21 +17,21 @@ cap = cv2.VideoCapture(r'data/video.avi')
 if (cap.isOpened()== False): 
     print("Errore nell'apertura del file video")
 
-temp   = cv2.imread(r'data/temp.jpg',0)
-bird   = cv2.imread(r'data/dst1.jpg')
+temp = cv2.imread(r'data/temp.jpg',0)
+bird = cv2.imread(r'data/dst1.jpg')
 
 #Salva dimensioni palla
 wt, ht = temp.shape[::-1]
 
 #Prendi dimensioni video input che vanno prima convertite da float a int
-frame_width  = int(cap.get(3))
+frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
 size = (frame_width, frame_height)
 
 #Salva il video in game con le stesse dimensioni del video in input e il birdview in bird con le stesse
 #dimensioni dell'immagine su cui si vuole mappare il movimento dei giocatori
-game      = cv2.VideoWriter('game.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 20, (1920,1080))
-birdview  = cv2.VideoWriter('bird.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 20, (1100, 746))
+game = cv2.VideoWriter('game.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 20, (1920,1080))
+birdview = cv2.VideoWriter('bird.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 20, (1100, 746))
 
 ##############################################################################
 
@@ -108,9 +108,9 @@ def get_detected(outs,height, width):
 def plane(players,ball):
     planetemp = bird.copy()
     #Inserisco la matrice calcolata con Get_Matrix.py
-    matrix=np.array([[ 3.16690465e-01,  7.60754322e-01,  2.79973193e+02],
-                     [ 2.11272233e-02,  1.79420066e+00, -1.38669899e+02],
-                     [ 5.74109329e-05,  1.38992407e-03,  1.00000000e+00]])
+    matrix=np.array([[3.16690465e-01, 7.60754322e-01, 2.79973193e+02],
+                     [2.11272233e-02, 1.79420066e+00, -1.38669899e+02],
+                     [5.74109329e-05, 1.38992407e-03, 1.00000000e+00]])
 
     for p in players:
         x = p[0] + int(p[2]/2) 
@@ -178,7 +178,6 @@ while(cap.isOpened()):
         for i in range(len(outs)):
             x, y, w, h, class_id = outs[i]
             Clabel = str(classes[class_id])
-            print(Clabel)
             roi = frame[y:y+h,x:x+w]
             
             #Alcuni frame potrebbero non andare bene per la classification quindi la funzione può lanciare errori
