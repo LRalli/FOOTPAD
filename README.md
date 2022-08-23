@@ -41,7 +41,7 @@ Altrimenti, se si vuole allenare un proprio Dataset, si seguano le istruzioni pr
   <img src="ReadmeImg/KerasDataset.png" />
 </p>
 
-<p>Dopodiche bisogna riempire queste cartelle con gli oggetti che si vuole classificare (in questo caso giocatori e assistenti di gara), per farlo si prende ogni giocatore (o assistente di gara) che compare nella clip scelta e si salva l'immagine (di cui non importa la dimensione poichè ogni immagine verrà ri-dimensionata durante il pre-processamento) nell'apposita cartella in base la classe di appartenenza</p>
+<p>Dopodiché bisogna riempire queste cartelle con gli oggetti che si vuole classificare (in questo caso giocatori e assistenti di gara), per farlo si prendono in più frame le posizioni di ogni giocatore (o assistente di gara) che compare nella clip scelta e si salva l'immagine (di cui non importa la dimensione poichè ogni immagine verrà ri-dimensionata durante il pre-processamento) nell'apposita cartella in base la classe di appartenenza</p>
 
 <p align="center">
   <img src="ReadmeImg/KerasDataset2.png" />
@@ -69,6 +69,12 @@ gli ultimi Hidden_Layers invece sono il Flattening Layer per mettere tutte le in
 
 l'ultimo Dense Hidden_Layer usa ```sigmoid``` come funzione di attivazione per garantire che l'output sia un numero compreso tra 0 e 1
 
+Summary del modello Keras:
+
+<p align="center">
+  <img src="ReadmeImg/kerasdnn.png" style="width:50%" />
+</p>
+
 l'Output_Layer generato viene infine compilato come modello Keras e viene salvato come ```model2.h5```
 
 <br>
@@ -78,7 +84,7 @@ l'Output_Layer generato viene infine compilato come modello Keras e viene salvat
 1. __Preparazione Dataset__
 <p>Per prima cosa bisogna scegliere un video di una partita su cui si vuole effettuare la Detection</p>
 
-Successivamente tramite l'utlizzo del software ```LabelImg``` è necessario effettuare il labeling manuale delle classi su cui si vuole che l'algoritmo YOLO venga allenato per la Detection.
+Successivamente tramite l'utlizzo del software <a href="https://github.com/heartexlabs/labelImg">LabelImg</a> è necessario effettuare il labeling manuale delle classi su cui si vuole che l'algoritmo YOLO venga allenato per la Detection.
 
 Le classi scelte sono state:
    - Giocatore
@@ -128,9 +134,9 @@ Darknet è un open source neural network framework scritto in C e CUDA che utili
 
 Il concetto su cui si basa YOLO è quello di ridimensionare l'immagine cosi da ottenere una grid di quadrati che verrà poi analizzata attraverso un CNN
 
-<br><br>
+<br>
 
-<h2 align="center">DETECTION</h2>
+<h2 align="center">MAIN SCRIPT</h2>
 
 __Calcolo Matrice per Perspective Transformation__
 
