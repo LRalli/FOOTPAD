@@ -16,7 +16,7 @@
   <a href="https://www.codefactor.io/repository/github/lralli/footpad"><img src="https://www.codefactor.io/repository/github/lralli/footpad/badge" alt="CodeFactor" /></a>
 </p>
 
-<br><br>
+<br>
 
 Se si vuole testare l'applicazione con il Dataset già allenato basta effettuare la clone della repo con
 ```
