@@ -1,6 +1,8 @@
 <h1 align="center">FOOTPAD</h1>
 
-![Schema!](/ReadmeImg/logo2.png)
+<p align="center">
+  <img src="ReadmeImg/logo2.png" style="margin-bottom: -6%" />
+</p>
 
 <p align="center">Footpad è un applicazione che usa algoritmi di Machine Learning su video di partite calcistiche con particolare attenzione su algoritmi di 
    - Multiple Object Detection tramite YOLO 
