@@ -125,7 +125,11 @@ def plane(players,ball):
         elif p[5]==1:
             cv2.circle(planetemp, pp, 15, (255,255,255),-1)
         elif p[5]==2:
-            cv2.circle(planetemp, pp, 15, (0,0,255),-1)
+            if p[4]=="Arbitro":
+                cv2.circle(planetemp, pp, 15, (0,0,255),-1)
+            elif p[4]=="Guardalinee":
+                cv2.circle(planetemp, pp, 15, (0,255,255),-1)
+
     if len(ball) !=0:
         
         xb = ball[0] + int(ball[2]/2)
@@ -145,6 +149,8 @@ def plane(players,ball):
 
 opr=0
 frameN = 0
+font = cv2.FONT_HERSHEY_PLAIN
+
 while(cap.isOpened()):
     ret, frame = cap.read()
     
@@ -191,14 +197,18 @@ while(cap.isOpened()):
             players.append([x,y,w,h,Clabel,ym])
             
             if ym==0:
-                cv2.rectangle(copy, (x, y), (x + w, y + h), (0,0,255), 2)  #Disegno rettangolo con coordinate angolo alto sx e basso dx
+                cv2.rectangle(copy, (x, y), (x + w, y + h), (0,0,255), 2) #Disegno rettangolo con coordinate angolo alto sx e basso dx
+                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (0,0,255), 3)
             elif ym==1:
                 cv2.rectangle(copy, (x, y), (x + w, y + h), (0,255,0), 2)
+                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (0,255,0), 3)
             elif ym==2:
               if Clabel=="Arbitro":
                 cv2.rectangle(copy, (x, y), (x + w, y + h), (255,0,0), 2)
+                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (255,0,0), 3)
               elif Clabel=="Guardalinee":
                 cv2.rectangle(copy, (x, y), (x + w, y + h), (255,255,0), 2)
+                cv2.putText(copy, Clabel, (x+50,y+20), font, 2, (255,255,0), 3)
             
         
         res = cv2.matchTemplate(gray,temp,cv2.TM_SQDIFF_NORMED)
