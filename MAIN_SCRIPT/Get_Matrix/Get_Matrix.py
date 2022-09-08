@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 #Immagine del campo da gioco come visto nel video
-CampoVideo = cv2.imread('src.jpg') 
+CampoVideo = cv2.imread('src1.png') 
 #Immagine del campo da gioco in bird view scelta
 CampoPlane = cv2.imread('dst1.png') 
 
