@@ -187,7 +187,7 @@ questo script prende in input:
 
 Per il frame del video sono stati scelti questi 4 punti (scelta approssimata di uno dei punti che non è visibile del frame ed è stata tenuta in conto l'angolazione dell'inquadratura): 
 
-![Schema!](/ReadmeImg/PuntiFrameVideo.png)
+![Schema!](/ReadmeImg/PuntiFrameVideo1.png)
 
 E sono stati presi i corrispettivi sull'immagine Plane:
 
