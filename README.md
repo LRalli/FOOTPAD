@@ -94,7 +94,9 @@ Le classi scelte sono state:
    - Guardalinee
    - Palla
 
-LabelImg prende in input un insieme di immagini (I frame del video) e per ogni immagine, una volta finito il lavoro di labeling manuale, genera un file .txt con le coordinate degli oggetti su cui è stato tracciato il label, per ottenere frame del video ogni x secondi è possibile usare lo script ```frame_shot.py```
+LabelImg prende in input un insieme di immagini (I frame del video) e per ogni immagine, una volta finito il lavoro di labeling manuale, genera un file .txt con le coordinate degli oggetti su cui è stato tracciato il label.
+
+Per ottenere frame del video ogni x secondi è possibile usare lo script ```frame_shot.py```
 
 Dopo aver lanciato lo script è possibile avviare LabelImg con
 ```
@@ -135,6 +137,40 @@ Darknet è un open source neural network framework scritto in C e CUDA che utili
 </p>
 
 Il concetto su cui si basa YOLO è quello di ridimensionare l'immagine cosi da ottenere una grid di quadrati che verrà poi analizzata attraverso un CNN
+
+Risultati qualitativi (su weights allenate con Darknet per 6500 iterazioni):
+
+<p align="center">
+  <img src="ReadmeImg/predictions.jpg" />
+</p>
+
+Risultati quantitativi (sempre sulle stesse weights):
+
+- Learning Curve:
+
+<p align="center">
+  <img src="ReadmeImg/LearningCurve.jpg" />
+</p>
+
+Altri valori quantitativi tra cui:
+
+<p align="center">
+  <img src="ReadmeImg/PrecisionValues.png" />
+</p>
+
+- TP = True Positive = Detection corretta effettuata dal modello
+- FP = False Positive = Detection incorretta effettuata dal modello
+- FN = False Negative = Missed Detections da parte del modello
+- AP = Average Precision = Metrica per misurare la precisione del modello, corrisponde all'area sotto la curva Precision-Recall 
+- mAP = Mean Average Precision = Average of AP
+- Precision = Indica la percentuale di Detections corrette, ottenuta dal rapporto tra TP e TP + FP
+- Recall = Indica quanto il modello sia in grado di giudicare positivamente, ottenuta dal rapporto tra TP e TP + FN
+- IoU = Intersection over Union = Misura la sovrapposizione tra 2 perimetri, usata per misurare quanto il bounding box predetto si sovrappone al box che contiene l'oggetto reale
+- F1-Score = Average tra Precision e Recall
+
+<p align="center">
+  <img src="ReadmeImg/DarkentData.png" />
+</p>
 
 <br>
 
@@ -214,7 +250,21 @@ Tramite lo script ```MainScript.py``` è possibile ottenere in output il video c
   <img src="ReadmeImg/ballDet.png" />
 </p>
 
+(01/09): Dopo aver allenato ancora le weights la Detection della palla è migliorata, nonostante ciò ho deciso di continuare ad usare il Template Matching per una precisione più elevata
 
-<h2 align="center">RISULTATI E CONSIDERAZIONI</h2>
+<h2 align="center">Istruzioni per l'avvio</h2>
 
-[WORK IN PROGRESS]
+1. Tramite git clonare il repository con il comando
+```
+git clone https://github.com/LRalli/FOOTPAD.git
+```
+2. Spostarsi nella cartella MAIN_SCRIPT
+```
+cd [Percorso in cui avete salvato la repository]/MAIN_SCRIPT
+```
+3. Lanciare lo script principale che comincierà ad effettuare la detection e salvare i risultati all'interno dei 2 file video all'interno della cartella MAIN_SCRIPT
+```
+python Main_Script.py
+```
+<br><br>
+Autore: Lorenzo Ralli (1853661)

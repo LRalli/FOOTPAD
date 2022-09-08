@@ -123,12 +123,12 @@ def plane(players,ball):
         if(p[5]==0):
             cv2.circle(planetemp, pp, 15, (255,0,0),-1)
         elif p[5]==1:
-            cv2.circle(planetemp, pp, 15, (255,255,255),-1)
+            cv2.circle(planetemp, pp, 15, (255,192,203),-1)
         elif p[5]==2:
             if p[4]=="Arbitro":
                 cv2.circle(planetemp, pp, 15, (0,0,255),-1)
             elif p[4]=="Guardalinee":
-                cv2.circle(planetemp, pp, 15, (0,255,255),-1)
+                cv2.circle(planetemp, pp, 15, (0,215,255),-1)
 
     if len(ball) !=0:
         
@@ -139,7 +139,7 @@ def plane(players,ball):
         x2 = int(ptsballo[0][0][0]) # = ascissa punto centrale
         y2 = int(ptsballo[0][0][1]) # = ordinata punto centrale
         pb = (x2,y2)
-        cv2.circle(planetemp, pb, 15, (0,0,0),-1)
+        cv2.circle(planetemp, pb, 15, (0,255,100),-1)
     return planetemp
 
 ################################################################################
@@ -197,18 +197,18 @@ while(cap.isOpened()):
             players.append([x,y,w,h,Clabel,ym])
             
             if ym==0:
-                cv2.rectangle(copy, (x, y), (x + w, y + h), (0,0,255), 2) #Disegno rettangolo con coordinate angolo alto sx e basso dx
-                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (0,0,255), 3)
+                cv2.rectangle(copy, (x, y), (x + w, y + h), (255,0,0), 2) #Disegno rettangolo con coordinate angolo alto sx e basso dx
+                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (255,0,0), 3)
             elif ym==1:
-                cv2.rectangle(copy, (x, y), (x + w, y + h), (0,255,0), 2)
-                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (0,255,0), 3)
+                cv2.rectangle(copy, (x, y), (x + w, y + h), (255,192,203), 2)
+                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (255,192,203), 3)
             elif ym==2:
               if Clabel=="Arbitro":
-                cv2.rectangle(copy, (x, y), (x + w, y + h), (255,0,0), 2)
-                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (255,0,0), 3)
+                cv2.rectangle(copy, (x, y), (x + w, y + h), (0,0,255), 2)
+                cv2.putText(copy, Clabel, (x-10,y-10), font, 2, (0,0,255), 3)
               elif Clabel=="Guardalinee":
-                cv2.rectangle(copy, (x, y), (x + w, y + h), (255,255,0), 2)
-                cv2.putText(copy, Clabel, (x+50,y+20), font, 2, (255,255,0), 3)
+                cv2.rectangle(copy, (x, y), (x + w, y + h), (0,215,255), 2)
+                cv2.putText(copy, Clabel, (x+50,y+20), font, 2, (0,215,255), 3)
             
         
         res = cv2.matchTemplate(gray,temp,cv2.TM_SQDIFF_NORMED)
